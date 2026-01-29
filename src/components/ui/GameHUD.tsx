@@ -186,7 +186,7 @@ export function GameHUD() {
                             textShadow: "0 0 20px rgba(0, 242, 255, 0.5)",
                         }}
                     >
-                        NEO-HÀNH
+                        GEOMANCER
                     </Text>
                     <Text size="xs" c="dimmed" style={{ letterSpacing: "0.15em" }}>
                         THE HARMONY ARCHITECT

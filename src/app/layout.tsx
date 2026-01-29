@@ -24,7 +24,7 @@ const chakraPetch = Chakra_Petch({
 // });
 
 export const metadata: Metadata = {
-    title: "NEO-HÀNH | The Harmony Architect",
+    title: "Geomancer | The Harmony Architect",
     description:
         "Trò chơi xếp hình 3D dựa trên triết lý Ngũ Hành của Việt Nam, tái hiện trong phong cách Cyberpunk.",
 };

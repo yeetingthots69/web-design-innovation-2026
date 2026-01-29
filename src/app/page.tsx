@@ -68,7 +68,7 @@ export default function LandingPage() {
                                 {/* Logo/Title */}
                                 <Box className={classes.logoContainer}>
                                     <Title order={1} className={classes.mainTitle}>
-                                        NEO-HÀNH
+                                        GEOMANCER
                                     </Title>
                                     <Text className={classes.subtitle}>
                                         THE HARMONY ARCHITECT
