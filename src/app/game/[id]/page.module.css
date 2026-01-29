@@ -1,0 +1,46 @@
+/* Mission Game Page Styles */
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #050505;
+}
+
+/* Mission Briefing Card - Top left under title */
+.briefingCard {
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    z-index: 100;
+    max-width: 280px;
+}
+
+.briefingPaper {
+    background: rgba(10, 10, 10, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 242, 255, 0.3) !important;
+}
+
+/* Compile Button - Bottom right */
+.compileButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+
+.compileButton button {
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.3);
+    animation: compilePulse 2s ease-in-out infinite;
+}
+
+@keyframes compilePulse {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(0, 242, 255, 0.5);
+    }
+}

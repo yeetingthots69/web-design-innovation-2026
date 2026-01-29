@@ -1,0 +1,54 @@
+/* GameHUD Styles - Cyberpunk UI Overlay */
+
+.oracleCard {
+    width: 320px;
+    background: rgba(10, 10, 10, 0.85) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 242, 255, 0.3) !important;
+}
+
+.oracleMessage {
+    font-family: "Be Vietnam Pro", sans-serif;
+    line-height: 1.4;
+    border-left: 2px solid rgba(0, 242, 255, 0.5);
+    padding-left: 8px;
+}
+
+.progressBar {
+    background: rgba(0, 242, 255, 0.1);
+}
+
+.inventoryAffix {
+    transform: translateX(-50%);
+}
+
+.inventoryBar {
+    background: rgba(10, 10, 10, 0.85) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 242, 255, 0.3) !important;
+}
+
+.elementButton {
+    width: 48px !important;
+    height: 48px !important;
+    transition: all 0.2s ease;
+    border-width: 2px;
+}
+
+.elementButton:hover {
+    transform: scale(1.1);
+}
+
+.instructionCard {
+    background: rgba(10, 10, 10, 0.7) !important;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 242, 255, 0.15) !important;
+    max-width: 200px;
+}
+
+.cameraHint {
+    background: rgba(10, 10, 10, 0.6) !important;
+    border: 1px solid rgba(0, 242, 255, 0.1) !important;
+    text-align: center;
+}
+

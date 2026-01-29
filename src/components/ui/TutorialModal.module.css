@@ -1,0 +1,12 @@
+/* Tutorial Modal Styles */
+
+.loreBox {
+    padding: 12px;
+    background: rgba(0, 242, 255, 0.05);
+    border-left: 2px solid rgba(0, 242, 255, 0.3);
+}
+
+.cycleText {
+    font-family: "Chakra Petch", monospace;
+    letter-spacing: 0.1em;
+}

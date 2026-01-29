@@ -1,0 +1,132 @@
+[
+    {
+        "id": "req_001",
+        "client": {
+            "name": "Kaito V",
+            "role": "Netrunner",
+            "description": "Máy chủ quá nóng. Cần hạ nhiệt ngay lập tức."
+        },
+        "mission": {
+            "title": "Quá Tải Nhiệt",
+            "difficulty": "Dễ",
+            "locked_elements": ["fire"],
+            "grid_shape": [
+                [1, 1, 1, 1],
+                [1, 1, 1, 1],
+                [1, 1, 1, 1],
+                [1, 1, 1, 1]
+            ]
+        },
+        "requirements": {
+            "min_harmony_score": 70,
+            "constraints": {
+                "must_include": ["water", "metal"],
+                "must_avoid": ["fire"]
+            }
+        }
+    },
+    {
+        "id": "req_002",
+        "client": {
+            "name": "Mai Linh",
+            "role": "Corpo Executive",
+            "description": "Văn phòng cần sự cân bằng. Nhân viên hay xung đột."
+        },
+        "mission": {
+            "title": "Hòa Giải Nội Bộ",
+            "difficulty": "Trung Bình",
+            "locked_elements": [],
+            "grid_shape": [
+                [0, 1, 1, 0],
+                [1, 1, 1, 1],
+                [1, 1, 1, 1],
+                [0, 1, 1, 0]
+            ]
+        },
+        "requirements": {
+            "min_harmony_score": 80,
+            "constraints": {
+                "must_include": ["wood", "water", "earth"],
+                "must_avoid": []
+            }
+        }
+    },
+    {
+        "id": "req_003",
+        "client": {
+            "name": "Hùng \"Iron\" Nguyễn",
+            "role": "Fixer",
+            "description": "Cần tăng cường bảo mật. Kim khí phải vượng."
+        },
+        "mission": {
+            "title": "Pháo Đài Số",
+            "difficulty": "Khó",
+            "locked_elements": ["wood"],
+            "grid_shape": [
+                [1, 1, 1, 1],
+                [1, 0, 0, 1],
+                [1, 0, 0, 1],
+                [1, 1, 1, 1]
+            ]
+        },
+        "requirements": {
+            "min_harmony_score": 85,
+            "constraints": {
+                "must_include": ["metal", "earth", "water"],
+                "must_avoid": ["wood"]
+            }
+        }
+    },
+    {
+        "id": "req_004",
+        "client": {
+            "name": "Thảo Vy",
+            "role": "Techie",
+            "description": "Workshop cần nguồn năng lượng sáng tạo mạnh mẽ."
+        },
+        "mission": {
+            "title": "Lò Rèn Sáng Tạo",
+            "difficulty": "Trung Bình",
+            "locked_elements": [],
+            "grid_shape": [
+                [1, 0, 0, 1],
+                [1, 1, 1, 1],
+                [1, 1, 1, 1],
+                [1, 0, 0, 1]
+            ]
+        },
+        "requirements": {
+            "min_harmony_score": 75,
+            "constraints": {
+                "must_include": ["fire", "wood"],
+                "must_avoid": ["water"]
+            }
+        }
+    },
+    {
+        "id": "req_005",
+        "client": {
+            "name": "Đức \"Shadow\" Trần",
+            "role": "Solo",
+            "description": "Căn hộ ẩn náu. Cần sự tĩnh lặng tuyệt đối."
+        },
+        "mission": {
+            "title": "Bóng Tối An Toàn",
+            "difficulty": "Khó",
+            "locked_elements": ["fire"],
+            "grid_shape": [
+                [1, 1, 0, 0],
+                [1, 1, 1, 0],
+                [0, 1, 1, 1],
+                [0, 0, 1, 1]
+            ]
+        },
+        "requirements": {
+            "min_harmony_score": 90,
+            "constraints": {
+                "must_include": ["water", "metal", "earth"],
+                "must_avoid": ["fire"]
+            }
+        }
+    }
+]
