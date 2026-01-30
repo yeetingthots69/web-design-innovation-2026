@@ -160,6 +160,11 @@ export default function MissionGamePage({params}: PageProps) {
                         <Text size="xs" c="cyan" mt="sm">
                             {"// Mục tiêu: "}{mission.requirements.min_harmony_score}{"% hài hòa"}
                         </Text>
+                        {mission.requirements.constraints.must_include.length > 0 && (
+                            <Text size="xs" c="green">
+                                {"// Cần có: "}{mission.requirements.constraints.must_include.map(e => ELEMENT_TYPES[e].nameVi).join(", ")}
+                            </Text>
+                        )}
                         {mission.requirements.constraints.must_avoid.length > 0 && (
                             <Text size="xs" c="magenta">
                                 {"// Cấm: "}{mission.requirements.constraints.must_avoid.map(e => ELEMENT_TYPES[e].nameVi).join(", ")}

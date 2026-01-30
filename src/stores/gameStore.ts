@@ -261,6 +261,11 @@ export const useGameStore = create<GameState>((set, get) => ({
     },
 
     setGridShape: (shape) => {
-        set({ gridShape: shape, grid: createGridWithShape(shape) });
+        set({
+            gridShape: shape,
+            grid: createGridWithShape(shape),
+            harmonyScore: 50,
+            oracleMessage: "HỆ THỐNG ĐANG CHỜ... Đặt nguyên tố để bắt đầu.",
+        });
     },
 }));
