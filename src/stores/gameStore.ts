@@ -203,12 +203,18 @@ export const useGameStore = create<GameState>((set, get) => ({
 
                     for (const { nx, nz } of neighbors) {
                         if (nx < 4 && nz < 4 && grid[nx][nz].element) {
+                            // Check both directions of the relationship
                             const rel = getRelationship(
                                 cell.element,
                                 grid[nx][nz].element!
                             );
-                            if (rel === "generates") generationCount++;
-                            if (rel === "destroys") destructionCount++;
+                            const reverseRel = getRelationship(
+                                grid[nx][nz].element!,
+                                cell.element
+                            );
+                            // Count if either direction generates/destroys
+                            if (rel === "generates" || reverseRel === "generates") generationCount++;
+                            if (rel === "destroys" || reverseRel === "destroys") destructionCount++;
                         }
                     }
                 }
@@ -246,8 +252,9 @@ export const useGameStore = create<GameState>((set, get) => ({
     },
 
     resetGrid: () => {
+        const { gridShape } = get();
         set({
-            grid: createGridWithShape(DEFAULT_GRID_SHAPE),
+            grid: createGridWithShape(gridShape),
             harmonyScore: 50,
             oracleMessage: "HỆ THỐNG ĐÃ RESET. Sẵn sàng cho cấu hình mới.",
         });
