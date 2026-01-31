@@ -48,7 +48,7 @@ export function TutorialModal({ opened, onClose }: TutorialModalProps) {
                     <Text size="sm" c="dimmed" fs="italic">
                         Neo-Saigon, 2077. Bạn là Thầy Phong Thủy 4.0 - một Digital Geomancer.
                         Khách hàng gửi đến những bố cục bị hỏng. Nhiệm vụ của bạn là đặt các node
-                        nguyên tố để khôi phục dòng chảy Qi.
+                        nguyên tố để khôi phục dòng chảy Khí Công.
                     </Text>
                 </Box>
 

@@ -113,7 +113,7 @@ export default function MissionGamePage({params}: PageProps) {
 
         // Generate result message
         const message = success
-            ? `Độ hòa hợp: ${harmonyScore}%. Nhiệm vụ hoàn thành. Qi đã được cân bằng.`
+            ? `Độ hòa hợp: ${harmonyScore}%. Nhiệm vụ hoàn thành. Khí công đã được cân bằng.`
             : `Lỗi nghiêm trọng. Cấu hình chưa đạt yêu cầu.`;
 
         setResult({success, message, details});

@@ -85,7 +85,7 @@ export default function LandingPage() {
                                 >
                                     Neo-Saigon, 2077. Bạn là Thầy Phong Thủy 4.0.
                                     <br/>
-                                    Cân bằng Ngũ Hành. Khôi phục dòng chảy Qi.
+                                    Cân bằng Ngũ Hành. Khôi phục dòng chảy Khí công.
                                 </Text>
 
                                 {/* Element icons preview */}
@@ -156,7 +156,7 @@ export default function LandingPage() {
                                         YÊU CẦU KHÁCH HÀNG
                                     </Title>
                                     <Text size="sm" c="dimmed" mt="xs">
-                                        Chọn nhiệm vụ để bắt đầu cân bằng Qi
+                                        Chọn nhiệm vụ để bắt đầu cân bằng Khí Công
                                     </Text>
                                 </Box>
 
