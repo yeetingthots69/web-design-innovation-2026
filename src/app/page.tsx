@@ -74,13 +74,13 @@ export default function LandingPage() {
                                         THE HARMONY ARCHITECT
                                     </Text>
                                 </Box>
-
                                 {/* Tagline */}
                                 <Text
-                                    size="lg"
+                                    size="md"
                                     c="dimmed"
                                     ta="center"
                                     maw={500}
+                                    px="md"
                                     className={classes.tagline}
                                 >
                                     Neo-Saigon, 2077. Bạn là Thầy Phong Thủy 4.0.
@@ -89,7 +89,7 @@ export default function LandingPage() {
                                 </Text>
 
                                 {/* Element icons preview */}
-                                <Group gap="lg" className={classes.elementPreview}>
+                                <Group gap="md" className={classes.elementPreview}>
                                     <Box className={classes.elementIcon} data-element="fire">
                                         火
                                     </Box>
@@ -142,7 +142,7 @@ export default function LandingPage() {
                             animate={{opacity: 1, y: 0}}
                             transition={{duration: 0.5}}
                         >
-                            <Stack gap="xl">
+                            <Stack gap="xl" style={{padding: "3rem 0"}}>
                                 <Box ta="center">
                                     <Text
                                         size="xs"

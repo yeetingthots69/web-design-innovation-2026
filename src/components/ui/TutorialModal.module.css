@@ -10,3 +10,16 @@
     font-family: "Chakra Petch", monospace;
     letter-spacing: 0.1em;
 }
+
+/* Responsive Styles */
+@media (max-width: 575px) {
+    .loreBox {
+        padding: 8px;
+    }
+
+    .cycleText {
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+    }
+}
+

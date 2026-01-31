@@ -40,6 +40,7 @@ export function TutorialModal({ opened, onClose }: TutorialModalProps) {
                 </Text>
             }
             size="lg"
+            centered
         >
             <Stack gap="md">
                 {/* Lore intro */}
@@ -186,7 +187,7 @@ export function TutorialModal({ opened, onClose }: TutorialModalProps) {
                     <Title order={5} c="cyan" mb="sm">
                         Ký Hiệu Nguyên Tố
                     </Title>
-                    <Group gap="md">
+                    <Group gap="sm" wrap="wrap">
                         <Badge leftSection="🔥" color="red" variant="outline">Hỏa</Badge>
                         <Badge leftSection="💧" color="blue" variant="outline">Thủy</Badge>
                         <Badge leftSection="🌲" color="green" variant="outline">Mộc</Badge>

@@ -8,12 +8,12 @@
     background: #050505;
 }
 
-/* Mission Briefing Card - Top left under title */
+/* Mission Briefing Card - positioned below top HUD on mobile */
 .briefingCard {
     position: fixed;
     top: 80px;
     left: 20px;
-    z-index: 100;
+    z-index: 90;
     max-width: 280px;
 }
 
@@ -23,12 +23,12 @@
     border: 1px solid rgba(0, 242, 255, 0.3) !important;
 }
 
-/* Compile Button - Bottom right */
+/* Compile Button - Bottom right, above mobile HUD */
 .compileButton {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 100;
+    z-index: 101;
 }
 
 .compileButton button {
@@ -42,5 +42,94 @@
     }
     50% {
         box-shadow: 0 0 40px rgba(0, 242, 255, 0.5);
+    }
+}
+
+/* =============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================= */
+
+/* Mobile: Position briefing card below top bar */
+@media (max-width: 768px) {
+    .briefingCard {
+        top: 56px;
+        left: 8px;
+        right: auto;
+        max-width: calc(60vw - 16px);
+    }
+
+    .briefingPaper {
+        padding: 8px !important;
+    }
+
+    /* Make briefing card more compact */
+    .briefingCard :global(.mantine-Title-root) {
+        font-size: 0.875rem;
+    }
+
+    .briefingCard :global(.mantine-Text-root) {
+        font-size: 0.75rem;
+    }
+
+    /* Compile button: Position above mobile bottom bar */
+    .compileButton {
+        bottom: 130px;
+        right: 12px;
+    }
+
+    .compileButton button {
+        padding: 10px 16px;
+        font-size: 0.875rem;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 400px) {
+    .briefingCard {
+        max-width: calc(55vw - 12px);
+    }
+}
+
+/* Larger phones - give more space to briefing */
+@media (min-width: 401px) and (max-width: 768px) {
+    .briefingCard {
+        max-width: 220px;
+    }
+}
+
+/* Tablet portrait */
+@media (min-width: 769px) and (max-width: 991px) {
+    .briefingCard {
+        max-width: 240px;
+    }
+}
+
+/* Landscape mobile - compact everything */
+@media (max-width: 768px) and (max-height: 450px) and (orientation: landscape) {
+    .briefingCard {
+        top: 44px;
+        left: 8px;
+        max-width: 180px;
+    }
+
+    .briefingPaper {
+        padding: 6px !important;
+    }
+
+    .compileButton {
+        bottom: 80px;
+        right: 8px;
+    }
+
+    .compileButton button {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Hide detailed briefing info on very small landscape */
+@media (max-width: 568px) and (max-height: 400px) and (orientation: landscape) {
+    .briefingCard :global(.mantine-Stack-root) > *:nth-child(n+4) {
+        display: none;
     }
 }

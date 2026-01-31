@@ -199,3 +199,117 @@
     box-shadow: 0 0 30px rgba(0, 242, 255, 0.2);
 }
 
+/* =============================================
+   RESPONSIVE STYLES - Landing Page
+   ============================================= */
+
+/* Mobile First: Extra Small Screens (< 576px) */
+@media (max-width: 575px) {
+    .mainTitle {
+        font-size: 2rem;
+        letter-spacing: 0.15em;
+    }
+
+    .subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+    }
+
+    .tagline {
+        font-size: 0.875rem;
+        padding: 0 16px;
+    }
+
+    .elementPreview {
+        gap: 8px;
+    }
+
+    .elementIcon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .playButton {
+        min-width: 160px;
+        font-size: 0.875rem;
+    }
+
+    .glowOrb1,
+    .glowOrb2 {
+        width: 200px;
+        height: 200px;
+    }
+
+    .missionCard {
+        padding: 12px;
+    }
+
+    .footer {
+        font-size: 0.6rem;
+        letter-spacing: 0.15em;
+    }
+}
+
+/* Small Screens (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+    .mainTitle {
+        font-size: 3rem;
+        letter-spacing: 0.2em;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+        letter-spacing: 0.3em;
+    }
+
+    .elementIcon {
+        width: 45px;
+        height: 45px;
+    }
+
+    .glowOrb1 {
+        width: 280px;
+        height: 280px;
+    }
+
+    .glowOrb2 {
+        width: 220px;
+        height: 220px;
+    }
+}
+
+/* Medium Screens (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .mainTitle {
+        font-size: 4rem;
+    }
+
+    .glowOrb1 {
+        width: 320px;
+        height: 320px;
+    }
+
+    .glowOrb2 {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+/* Touch devices: Disable hover effects for better UX */
+@media (hover: none) {
+    .missionCard:hover {
+        transform: none;
+    }
+
+    .elementIcon:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .missionCard:active {
+        transform: scale(0.98);
+        border-color: rgba(0, 242, 255, 0.5) !important;
+    }
+}
+

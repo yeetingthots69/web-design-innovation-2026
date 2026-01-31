@@ -1,5 +1,9 @@
 /* GameHUD Styles - Cyberpunk UI Overlay */
 
+/* =============================================
+   DESKTOP HUD STYLES
+   ============================================= */
+
 .oracleCard {
     width: 320px;
     background: rgba(10, 10, 10, 0.85) !important;
@@ -39,6 +43,17 @@
     transform: scale(1.1);
 }
 
+.elementButtonCompact {
+    width: 40px !important;
+    height: 40px !important;
+    transition: all 0.2s ease;
+    border-width: 2px;
+}
+
+.elementButtonCompact:active {
+    transform: scale(0.95);
+}
+
 .instructionCard {
     background: rgba(10, 10, 10, 0.7) !important;
     backdrop-filter: blur(5px);
@@ -52,3 +67,157 @@
     text-align: center;
 }
 
+.gameTitle {
+    font-size: 1.5rem;
+}
+
+/* =============================================
+   MOBILE HUD STYLES - Game-like compact layout
+   ============================================= */
+
+.mobileTopBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    z-index: 100;
+    padding: 0 12px;
+    background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 5, 0.95) 0%,
+        rgba(5, 5, 5, 0.85) 70%,
+        rgba(5, 5, 5, 0) 100%
+    );
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 242, 255, 0.15);
+}
+
+.mobileHarmonyGroup {
+    flex: 1;
+    max-width: 140px;
+    margin: 0 8px;
+}
+
+.mobileProgress {
+    flex: 1;
+    min-width: 50px;
+    background: rgba(0, 242, 255, 0.1);
+}
+
+.mobileBottomBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: linear-gradient(
+        to top,
+        rgba(5, 5, 5, 0.95) 0%,
+        rgba(5, 5, 5, 0.85) 70%,
+        rgba(5, 5, 5, 0) 100%
+    );
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(0, 242, 255, 0.15);
+    padding: 8px 12px;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+}
+
+.inventoryToggle {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(10, 10, 10, 0.9) !important;
+    border: 1px solid rgba(0, 242, 255, 0.3) !important;
+    border-radius: 4px 4px 0 0;
+    padding: 2px 12px;
+}
+
+/* =============================================
+   DESKTOP RESPONSIVE ADJUSTMENTS
+   ============================================= */
+
+@media (min-width: 769px) and (max-width: 991px) {
+    .oracleCard {
+        width: 280px;
+    }
+
+    .elementButton {
+        width: 44px !important;
+        height: 44px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .gameTitle {
+        font-size: 1.5rem;
+    }
+}
+
+/* Landscape tablets */
+@media (min-width: 769px) and (max-height: 600px) {
+    .oracleCard {
+        width: 260px;
+    }
+
+    .instructionCard {
+        max-width: 180px;
+    }
+}
+
+/* Touch devices on desktop: Adjust hover states */
+@media (min-width: 769px) and (hover: none) and (pointer: coarse) {
+    .elementButton {
+        width: 52px !important;
+        height: 52px !important;
+    }
+
+    .elementButton:hover {
+        transform: none;
+    }
+
+    .elementButton:active {
+        transform: scale(0.95);
+    }
+}
+
+/* =============================================
+   MOBILE LANDSCAPE ADJUSTMENTS
+   ============================================= */
+
+@media (max-width: 768px) and (max-height: 450px) and (orientation: landscape) {
+    .mobileTopBar {
+        height: 36px;
+        padding: 0 8px;
+    }
+
+    .mobileBottomBar {
+        padding: 4px 8px;
+    }
+
+    .elementButtonCompact {
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    .mobileHarmonyGroup {
+        max-width: 100px;
+    }
+}
+
+/* Very small mobile screens */
+@media (max-width: 360px) {
+    .mobileTopBar {
+        padding: 0 8px;
+    }
+
+    .elementButtonCompact {
+        width: 36px !important;
+        height: 36px !important;
+    }
+
+    .mobileHarmonyGroup {
+        max-width: 100px;
+    }
+}

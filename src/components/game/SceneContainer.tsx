@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrthographicCamera, OrbitControls } from "@react-three/drei";
 import { EffectComposer, Bloom, Noise } from "@react-three/postprocessing";
@@ -8,10 +8,40 @@ import { GridPlane } from "./GridPlane";
 import { DustParticles } from "./DustParticles";
 
 /**
+ * Hook to get responsive zoom level based on screen size
+ */
+function useResponsiveZoom() {
+    const [zoom, setZoom] = useState(50);
+
+    useEffect(() => {
+        const updateZoom = () => {
+            const width = window.innerWidth;
+            if (width < 576) {
+                setZoom(35); // Mobile: zoom out to fit grid
+            } else if (width < 768) {
+                setZoom(40); // Small tablets
+            } else if (width < 992) {
+                setZoom(45); // Tablets
+            } else {
+                setZoom(50); // Desktop
+            }
+        };
+
+        updateZoom();
+        window.addEventListener("resize", updateZoom);
+        return () => window.removeEventListener("resize", updateZoom);
+    }, []);
+
+    return zoom;
+}
+
+/**
  * SceneContainer Component
  * Main 3D scene setup with isometric camera, lighting, and post-processing effects.
  */
 export function SceneContainer() {
+    const zoom = useResponsiveZoom();
+
     return (
         <div className="canvas-container">
             <Canvas
@@ -25,7 +55,7 @@ export function SceneContainer() {
                     <OrthographicCamera
                         makeDefault
                         position={[20, 20, 20]}
-                        zoom={50}
+                        zoom={zoom}
                         near={-100}
                         far={200}
                     />
@@ -34,7 +64,7 @@ export function SceneContainer() {
                     <OrbitControls
                         enablePan={false}
                         enableZoom={true}
-                        minZoom={30}
+                        minZoom={25}
                         maxZoom={80}
                         enableRotate={true}
                         minPolarAngle={Math.PI / 6}

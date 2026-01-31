@@ -7,6 +7,16 @@
     --neon-magenta: #ff0055;
     --neon-green: #00ff9d;
     --font-tech: var(--font-chakra), "Chakra Petch", "Be Vietnam Pro", "Segoe UI", sans-serif;
+
+    /* Responsive spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Responsive breakpoints (for reference) */
+    /* xs: 576px, sm: 768px, md: 992px, lg: 1200px, xl: 1400px */
 }
 
 /* Base resets */

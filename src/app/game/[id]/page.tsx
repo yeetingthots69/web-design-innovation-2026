@@ -3,9 +3,9 @@
 import {use, useState, useEffect} from "react";
 import dynamic from "next/dynamic";
 import {useRouter} from "next/navigation";
-import {Box, Modal, Stack, Text, Title, Button, Group, Badge, Paper} from "@mantine/core";
-import {useDisclosure} from "@mantine/hooks";
-import {IconCheck, IconAlertTriangle} from "@tabler/icons-react";
+import {Box, Modal, Stack, Text, Title, Button, Group, Badge, Paper, Collapse, ActionIcon} from "@mantine/core";
+import {useDisclosure, useMediaQuery} from "@mantine/hooks";
+import {IconCheck, IconAlertTriangle, IconChevronDown, IconChevronUp} from "@tabler/icons-react";
 import {GameHUD} from "@/components/ui/GameHUD";
 import {useGameStore} from "@/stores/gameStore";
 import {MissionRequest} from "@/data/types";
@@ -34,12 +34,14 @@ export default function MissionGamePage({params}: PageProps) {
     const {id} = use(params);
     const router = useRouter();
     const [resultOpened, {open: openResult, close: closeResult}] = useDisclosure(false);
+    const [briefingExpanded, {toggle: toggleBriefing}] = useDisclosure(true);
     const [result, setResult] = useState<{
         success: boolean;
         message: string;
         details: string[];
     } | null>(null);
 
+    const isMobile = useMediaQuery("(max-width: 768px)");
     const {grid, harmonyScore, resetGrid, setGridShape} = useGameStore();
 
     // Find mission data
@@ -126,14 +128,26 @@ export default function MissionGamePage({params}: PageProps) {
             {/* Game HUD with mission info */}
             <GameHUD/>
 
-            {/* Mission Briefing Card - Top Right */}
+            {/* Mission Briefing Card - Collapsible on mobile */}
             <Box className={classes.briefingCard}>
-                <Paper p="md" className={classes.briefingPaper}>
+                <Paper p={isMobile ? "xs" : "md"} className={classes.briefingPaper}>
                     <Stack gap="xs">
-                        <Group justify="space-between">
-                            <Text size="xs" c="cyan" tt="uppercase" fw={600}>
-                                Khách Hàng
-                            </Text>
+                        {/* Header - always visible, clickable on mobile */}
+                        <Group
+                            justify="space-between"
+                            onClick={isMobile ? toggleBriefing : undefined}
+                            style={isMobile ? {cursor: "pointer"} : undefined}
+                        >
+                            <Group gap="xs">
+                                <Text size="xs" c="cyan" tt="uppercase" fw={600}>
+                                    {isMobile ? mission.client.name : "Khách Hàng"}
+                                </Text>
+                                {isMobile && (
+                                    <ActionIcon size="xs" variant="subtle" color="cyan">
+                                        {briefingExpanded ? <IconChevronUp size={12}/> : <IconChevronDown size={12}/>}
+                                    </ActionIcon>
+                                )}
+                            </Group>
                             <Badge
                                 color={
                                     mission.mission.difficulty === "Dễ"
@@ -143,33 +157,43 @@ export default function MissionGamePage({params}: PageProps) {
                                             : "magenta"
                                 }
                                 variant="outline"
-                                size="sm"
+                                size="xs"
                             >
                                 {mission.mission.difficulty}
                             </Badge>
                         </Group>
-                        <Title order={4} c="white">
-                            {mission.client.name}
-                        </Title>
-                        <Text size="xs" c="dimmed">
-                            {mission.client.role}
-                        </Text>
-                        <Text size="sm" c="gray.4" mt="xs">
-                            &ldquo;{mission.client.description}&rdquo;
-                        </Text>
-                        <Text size="xs" c="cyan" mt="sm">
-                            {"// Mục tiêu: "}{mission.requirements.min_harmony_score}{"% hài hòa"}
-                        </Text>
-                        {mission.requirements.constraints.must_include.length > 0 && (
-                            <Text size="xs" c="green">
-                                {"// Cần có: "}{mission.requirements.constraints.must_include.map(e => ELEMENT_TYPES[e].nameVi).join(", ")}
-                            </Text>
-                        )}
-                        {mission.requirements.constraints.must_avoid.length > 0 && (
-                            <Text size="xs" c="magenta">
-                                {"// Cấm: "}{mission.requirements.constraints.must_avoid.map(e => ELEMENT_TYPES[e].nameVi).join(", ")}
-                            </Text>
-                        )}
+
+                        {/* Collapsible content on mobile */}
+                        <Collapse in={!isMobile || briefingExpanded}>
+                            <Stack gap="xs">
+                                {!isMobile && (
+                                    <>
+                                        <Title order={4} c="white">
+                                            {mission.client.name}
+                                        </Title>
+                                        <Text size="xs" c="dimmed">
+                                            {mission.client.role}
+                                        </Text>
+                                    </>
+                                )}
+                                <Text size={isMobile ? "xs" : "sm"} c="gray.4">
+                                    &ldquo;{mission.client.description}&rdquo;
+                                </Text>
+                                <Text size="xs" c="cyan" mt={isMobile ? 4 : "sm"}>
+                                    {"// Mục tiêu: "}{mission.requirements.min_harmony_score}{"% hài hòa"}
+                                </Text>
+                                {mission.requirements.constraints.must_include.length > 0 && (
+                                    <Text size="xs" c="green">
+                                        {"// Cần: "}{mission.requirements.constraints.must_include.map(e => ELEMENT_TYPES[e].nameVi).join(", ")}
+                                    </Text>
+                                )}
+                                {mission.requirements.constraints.must_avoid.length > 0 && (
+                                    <Text size="xs" c="magenta">
+                                        {"// Cấm: "}{mission.requirements.constraints.must_avoid.map(e => ELEMENT_TYPES[e].nameVi).join(", ")}
+                                    </Text>
+                                )}
+                            </Stack>
+                        </Collapse>
                     </Stack>
                 </Paper>
             </Box>
@@ -207,6 +231,8 @@ export default function MissionGamePage({params}: PageProps) {
                     </Group>
                 }
                 size="md"
+                fullScreen={false}
+                centered
             >
                 <Stack gap="md">
                     <Text size="lg" ta="center" c="white">
